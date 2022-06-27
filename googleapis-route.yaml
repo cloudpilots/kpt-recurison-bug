@@ -1,0 +1,15 @@
+apiVersion: compute.cnrm.cloud.google.com/v1beta1
+kind: ComputeRoute
+metadata:
+  name: rt-my-project-123-googleapis # kpt-set: rt-${project-id}-googleapis
+  namespace: networking # kpt-set: ${network-namespace}
+  annotations:
+    cnrm.cloud.google.com/project-id: my-project-123 # kpt-set: ${project-id}
+spec:
+  description: "Route googleapi requests to the default internet gateway"
+  destRange: 199.36.153.8/30
+  networkRef:
+    name: vpc-01 # kpt-set: ${network-name}
+    namespace: networking # kpt-set: ${network-namespace}
+  priority: 10 # kpt-set: ${route-priority}
+  nextHopGateway: default-internet-gateway
