@@ -2,7 +2,7 @@
 
 ## Description
 
-This package shows an bug with recursive rendering.
+This package shows an [kpt fn render bug](https://github.com/GoogleContainerTools/kpt/issues/3330) with recursive rendering.
 
 To reproduce this bug using the following commands:
 
