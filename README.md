@@ -4,6 +4,15 @@
 
 This package shows an bug with recursive rendering.
 
+To reproduce this bug using the following commands:
+
+```bash
+kpt fn render googleapis
+kpt fn render gcr-io
+git add .; git commit -m "Commit diff"
+kpt fn render .
+```
+
 ## Usage
 
 ### Fetch the package
