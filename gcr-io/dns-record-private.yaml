@@ -1,0 +1,19 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: my-project-123-gcr-io-private # kpt-set: ${project-id}-${zone-name}-private
+  namespace: networking # kpt-set: ${network-namespace}
+  annotations:
+    cnrm.cloud.google.com/project-id: my-project-123 # kpt-set: ${project-id}
+spec:
+  name: "private.gcr.io." # kpt-set: private.${dns-name}
+  type: "A"
+  ttl: 600 # kpt-set: ${ttl}
+  managedZoneRef:
+    name: my-project-123-gcr-io # kpt-set: ${project-id}-${zone-name}
+    namespace: networking # kpt-set: ${network-namespace}
+  rrdatas:
+    - "199.36.153.8"
+    - "199.36.153.9"
+    - "199.36.153.10"
+    - "199.36.153.11"

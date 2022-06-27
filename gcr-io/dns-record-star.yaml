@@ -1,0 +1,16 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: my-project-123-gcr-io-star # kpt-set: ${project-id}-${zone-name}-star
+  namespace: networking # kpt-set: ${network-namespace}
+  annotations:
+    cnrm.cloud.google.com/project-id: my-project-123 # kpt-set: ${project-id}
+spec:
+  name: "*.gcr.io." # kpt-set: *.${dns-name}
+  type: "CNAME"
+  ttl: 600 # kpt-set: ${ttl}
+  managedZoneRef:
+    name: my-project-123-gcr-io # kpt-set: ${project-id}-${zone-name}
+    namespace: networking # kpt-set: ${network-namespace}
+  rrdatas:
+    - "private.gcr.io." # kpt-set: private.${dns-name}

@@ -1,0 +1,13 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: kpt-recursion-bug
+  annotations:
+    config.kubernetes.io/local-config: "true"
+info:
+  description: Show kpt render bug
+pipeline:
+  mutators:
+    # v0.2
+    - image: gcr.io/kpt-fn/apply-setters:v0.1
+      configPath: setters.yaml

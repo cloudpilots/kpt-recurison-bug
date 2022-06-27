@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: setters
+data:
+  network-name: vpc-01
+  network-namespace: networking
+  project-id: my-project-123
+  projects-namespace: projects

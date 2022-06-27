@@ -1,0 +1,16 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSManagedZone
+metadata:
+  name: my-project-123-googlapis-com # kpt-set: ${project-id}-${zone-name}
+  namespace: networking # kpt-set: ${network-namespace}
+  annotations:
+    cnrm.cloud.google.com/project-id: my-project-123 # kpt-set: ${project-id}
+spec:
+  dnsName: "googleapis.com." # kpt-set: ${dns-name}
+  description: "direct access to google apis without public ips"
+  visibility: private
+  privateVisibilityConfig:
+    networks:
+      - networkRef:
+          name: vpc-01 # kpt-set: ${network-name}
+          namespace: networking # kpt-set: ${network-namespace}
